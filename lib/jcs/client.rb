@@ -9,7 +9,7 @@ class JCS::Client
       faraday.request  :url_encoded
       faraday.response :logger, logger, bodies: log_request_body
       faraday.adapter  Faraday.default_adapter
-      faraday.proxy proxy if proxy
+      faraday.proxy = proxy if proxy
     end
   end
 
