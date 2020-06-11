@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe IngramMicro::Transmission do
+describe JCS::Transmission do
   let(:sales_order) { Fabricate.build(:sales_order) }
 
   it 'should raise exception if xml does not match schema' do
@@ -9,7 +9,7 @@ describe IngramMicro::Transmission do
 
     expect {
       sales_order.submit_request
-    }.to raise_error(IngramMicro::XMLSchemaMismatch)
+    }.to raise_error(JCS::XMLSchemaMismatch)
   end
 
   it 'should submit request if xml matches schema' do

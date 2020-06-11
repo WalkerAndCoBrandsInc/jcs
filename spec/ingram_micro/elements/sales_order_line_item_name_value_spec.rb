@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe IngramMicro::SalesOrderLineItemNameValue do
+describe JCS::SalesOrderLineItemNameValue do
   let(:builder) { Nokogiri::XML::Builder.new }
 
   describe '#self. build' do

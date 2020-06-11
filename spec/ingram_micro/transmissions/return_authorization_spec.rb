@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe IngramMicro::ReturnAuthorization do
+describe JCS::ReturnAuthorization do
   describe '#build' do
     let(:return_auth) { Fabricate.build(:return_authorization) }
 
@@ -11,7 +11,7 @@ describe IngramMicro::ReturnAuthorization do
     describe "customer id attribute" do
       context "with customer id param passed in" do
         it "sets customer_id" do
-          return_auth = IngramMicro::ReturnAuthorization.new({customer_id: 12341234}).
+          return_auth = JCS::ReturnAuthorization.new({customer_id: 12341234}).
             xml_builder.to_xml
           expect(return_auth).to include("<customer-id>12341234</customer-id>")
         end
@@ -19,7 +19,7 @@ describe IngramMicro::ReturnAuthorization do
 
       context "with customer id param not passed in" do
         it "pulls from the configuration" do
-          return_auth = IngramMicro::ReturnAuthorization.new.xml_builder.to_xml
+          return_auth = JCS::ReturnAuthorization.new.xml_builder.to_xml
           expect(return_auth).to include("<customer-id>123</customer-id>")
         end
       end

@@ -1,4 +1,4 @@
-Fabricator(:credit_card_information, class_name: IngramMicro::CreditCardInformation) do
+Fabricator(:credit_card_information, class_name: JCS::CreditCardInformation) do
   element {{ credit_card_number: "8617338279172675",
              credit_card_expiration_date: "201810",
              credit_card_identification: "671",
@@ -18,4 +18,3 @@ Fabricator(:credit_card_information, class_name: IngramMicro::CreditCardInformat
              avs_hold: nil,
              merchant_name: "walker" }}
 end
-

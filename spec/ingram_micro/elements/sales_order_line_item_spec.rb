@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe IngramMicro::SalesOrderLineItem do
+describe JCS::SalesOrderLineItem do
   let(:line_item) { Fabricate.build(:sales_order_line_item) }
 
   describe '#line_no and #line_no=' do
@@ -39,7 +39,7 @@ describe IngramMicro::SalesOrderLineItem do
       # the resulting xml won't appear unless it is called in a separate test.
       context 'when shipping using the international schema' do
         before do
-          IngramMicro.configuration.international_schema = true
+          JCS.configuration.international_schema = true
         end
 
         context 'when at least one attribute-value pair is present' do
@@ -81,7 +81,7 @@ describe IngramMicro::SalesOrderLineItem do
 
     it 'adds a special message to the xml if one is passed in' do
       builder = Nokogiri::XML::Builder.new
-      message = IngramMicro::SalesOrderLineItemSpecialMessage.new(
+      message = JCS::SalesOrderLineItemSpecialMessage.new(
         engraving_font: 'hellavetica',
         engraving_location: 'Santa Cruz',
         special_message1: 'duuuude'

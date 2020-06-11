@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-[IngramMicro::MessageHeaderPW, IngramMicro::MessageHeaderNoPW].each do |klass|
+[JCS::MessageHeaderPW, JCS::MessageHeaderNoPW].each do |klass|
 
   describe klass do
     let(:required_options) {{partner_name: 'partner_name'}}
@@ -17,7 +17,7 @@ require 'spec_helper'
       it 'message id raises an error' do
         options = required_options.merge({message_id: 'heyfriend'})
         message_header = klass.new(options)
-        expect { message_header.valid? }.to raise_error(IngramMicro::InvalidType)
+        expect { message_header.valid? }.to raise_error(JCS::InvalidType)
       end
     end
 
@@ -25,7 +25,7 @@ require 'spec_helper'
       it 'for partner_name ' do
         options = {message_id: '1234'}
         message_header = klass.new(options)
-        expect { message_header.valid? }.to raise_error(IngramMicro::MissingField)
+        expect { message_header.valid? }.to raise_error(JCS::MissingField)
       end
     end
 

@@ -1,4 +1,4 @@
-Fabricator(:customer, class_name: IngramMicro::Customer) do
+Fabricator(:customer, class_name: JCS::Customer) do
   element {{ customer_first_name: Faker::Name.first_name,
              customer_last_name: Faker::Name.last_name,
              customer_address1: Faker::Address.street_address,

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe IngramMicro::SalesOrderHeaderNameValue do
+describe JCS::SalesOrderHeaderNameValue do
   describe '#build' do
 
     context 'with valid name passed in' do

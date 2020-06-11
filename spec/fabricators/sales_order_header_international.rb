@@ -1,4 +1,4 @@
-Fabricator(:sales_order_header_international, class_name: IngramMicro::SalesOrderHeader) do
+Fabricator(:sales_order_header_international, class_name: JCS::SalesOrderHeader) do
   element {{ cutomer_order_number: Faker::Code.isbn,
     order_sub_total: Faker::Commerce.price,
     order_shipment_charge: Faker::Commerce.price,

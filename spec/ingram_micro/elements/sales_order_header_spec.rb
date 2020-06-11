@@ -1,13 +1,13 @@
 require 'spec_helper'
 
-describe IngramMicro::SalesOrderHeader do
+describe JCS::SalesOrderHeader do
   describe '#defaults' do
-    let(:config) { IngramMicro::Configuration.new }
+    let(:config) { JCS::Configuration.new }
 
     context 'when using the domestic schema' do
       it "returns the correct default values hash" do
-        IngramMicro.configuration.international_schema = false
-        so_defaults = IngramMicro::SalesOrderHeader.new.defaults
+        JCS.configuration.international_schema = false
+        so_defaults = JCS::SalesOrderHeader.new.defaults
 
         expect(so_defaults.keys.count).to eq 12
       end
@@ -15,8 +15,8 @@ describe IngramMicro::SalesOrderHeader do
 
     context 'when using the international schema' do
       it "returns the international default values hash" do
-        IngramMicro.configuration.international_schema = true
-        so_defaults = IngramMicro::SalesOrderHeader.new.defaults
+        JCS.configuration.international_schema = true
+        so_defaults = JCS::SalesOrderHeader.new.defaults
 
         expect(so_defaults.keys.count).to eq 18
       end
@@ -27,7 +27,7 @@ describe IngramMicro::SalesOrderHeader do
     it 'formats the customer_order_date as YYYYMMDD' do
       Nokogiri::XML::Builder.new do |builder|
         builder.send('message') do
-          IngramMicro::SalesOrderHeader.new(
+          JCS::SalesOrderHeader.new(
           customer_order_date: Time.new(2016, 6, 15)
           ).build(builder)
         end
@@ -39,7 +39,7 @@ describe IngramMicro::SalesOrderHeader do
     it 'defaults the customer_order_date to empty if it is not passed' do
       Nokogiri::XML::Builder.new do |builder|
         builder.send('message') do
-          IngramMicro::SalesOrderHeader.new.build(builder)
+          JCS::SalesOrderHeader.new.build(builder)
         end
 
         expect(builder.to_xml).to include('<customer-order-date/>')
@@ -49,7 +49,7 @@ describe IngramMicro::SalesOrderHeader do
     it 'also accepts a string for customer_order_date' do
       Nokogiri::XML::Builder.new do |builder|
         builder.send('message') do
-          IngramMicro::SalesOrderHeader.new(
+          JCS::SalesOrderHeader.new(
           customer_order_date: '20160615'
           ).build(builder)
         end
@@ -60,7 +60,7 @@ describe IngramMicro::SalesOrderHeader do
   end
 
   describe "#add_header_name_values" do
-    before { IngramMicro.configuration.international_schema = true }
+    before { JCS.configuration.international_schema = true }
 
     it 'allows header-name-value to be passed in' do
       soh_options = {
@@ -70,7 +70,7 @@ describe IngramMicro::SalesOrderHeader do
       }
       soh_builder = Nokogiri::XML::Builder.new do |builder|
         builder.send('message') do
-          IngramMicro::SalesOrderHeader.new(soh_options).build(builder)
+          JCS::SalesOrderHeader.new(soh_options).build(builder)
         end
       end
 

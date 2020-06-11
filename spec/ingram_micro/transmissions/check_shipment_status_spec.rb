@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe IngramMicro::CheckShipmentStatus do
+describe JCS::CheckShipmentStatus do
 
-  let(:empty_shipment_status) { IngramMicro::CheckShipmentStatus.new }
+  let(:empty_shipment_status) { JCS::CheckShipmentStatus.new }
 
   let(:options) {{
 

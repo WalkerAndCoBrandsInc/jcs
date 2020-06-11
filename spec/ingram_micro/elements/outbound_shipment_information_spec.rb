@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe IngramMicro::OutboundShipmentInformation do
-  let(:empty_shipment_info) { IngramMicro::OutboundShipmentInformation.new }
+describe JCS::OutboundShipmentInformation do
+  let(:empty_shipment_info) { JCS::OutboundShipmentInformation.new }
   let(:shipment_info) { Fabricate.build(:shipment_information)}
-  let(:ship_info_bad_shipping_method) { IngramMicro::OutboundShipmentInformation.new({ship_via: 'ABCD'})}
+  let(:ship_info_bad_shipping_method) { JCS::OutboundShipmentInformation.new({ship_via: 'ABCD'})}
 
   describe '#initialize' do
     context 'without values passed in' do
@@ -71,7 +71,7 @@ describe IngramMicro::OutboundShipmentInformation do
 
     context 'with valid shipping_method value passed in' do
       it 'should return the shipping method associated with the code' do
-        expect(IngramMicro::SHIPPING_METHODS.values).to include(shipment_info.shipping_method_name)
+        expect(JCS::SHIPPING_METHODS.values).to include(shipment_info.shipping_method_name)
       end
     end
   end
@@ -79,7 +79,7 @@ describe IngramMicro::OutboundShipmentInformation do
   it 'formats first name' do
     Nokogiri::XML::Builder.new do |builder|
       builder.send('message') do
-        IngramMicro::OutboundShipmentInformation.new({ship_first_name: 'Jeffrey'}).build(builder)
+        JCS::OutboundShipmentInformation.new({ship_first_name: 'Jeffrey'}).build(builder)
       end
 
       expect(builder.to_xml).to include('<ship-first-name>Jeffrey</ship-first-name>')
@@ -89,7 +89,7 @@ describe IngramMicro::OutboundShipmentInformation do
   it 'strips empty spaces from address2' do
     Nokogiri::XML::Builder.new do |builder|
       builder.send('message') do
-        IngramMicro::OutboundShipmentInformation.new({ship_address2: ' '}).build(builder)
+        JCS::OutboundShipmentInformation.new({ship_address2: ' '}).build(builder)
       end
 
       expect(builder.to_xml).to include('<ship-address2/>')

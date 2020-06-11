@@ -1,4 +1,4 @@
-Fabricator(:return_authorization_line_item, class_name: IngramMicro::ReturnAuthorizationLineItem) do
+Fabricator(:return_authorization_line_item, class_name: JCS::ReturnAuthorizationLineItem) do
   element {{ line_no: sequence(:line_no, 00001),
              item_code: Faker::Code.isbn,
              universal_product_code: Faker::Code.isbn,

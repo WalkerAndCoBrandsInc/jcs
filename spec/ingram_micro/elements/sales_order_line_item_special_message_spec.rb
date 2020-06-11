@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe IngramMicro::SalesOrderLineItemSpecialMessage do
+describe JCS::SalesOrderLineItemSpecialMessage do
   context 'without any information passed in' do
     it "produces a 'special-message' xml field" do
       special_message = described_class.new

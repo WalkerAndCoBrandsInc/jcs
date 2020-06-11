@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe IngramMicro::ReturnReceipt do
+describe JCS::ReturnReceipt do
   let(:return_receipt) do
-    hash = Nori.new.parse(File.read(IngramMicro::GEM_DIR + 'spec/input_xmls/return-receipt.xml'))
-    IngramMicro::ReturnReceipt.new(hash)
+    hash = Nori.new.parse(File.read(JCS::GEM_DIR + 'spec/input_xmls/return-receipt.xml'))
+    JCS::ReturnReceipt.new(hash)
   end
 
   it "returns customer_id" do

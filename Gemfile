@@ -1,4 +1,4 @@
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in ingram_micro.gemspec
+# Specify your gem's dependencies in jcs.gemspec
 gemspec

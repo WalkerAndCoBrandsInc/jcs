@@ -1,10 +1,10 @@
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
-require 'ingram_micro'
+require 'jcs'
 require 'logger'
 
-IngramMicro.configure do |config|
+JCS.configure do |config|
   config.api_root = ''
   config.partner_name = 'Your company'
   config.partner_password = ''
@@ -14,5 +14,5 @@ IngramMicro.configure do |config|
 end
 
 options = {}
-transmission = IngramMicro::SalesOrder.new(options)
+transmission = JCS::SalesOrder.new(options)
 transmission.send_request

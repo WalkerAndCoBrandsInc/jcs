@@ -1,13 +1,13 @@
 require 'spec_helper'
 
-describe IngramMicro::InventorySync do
+describe JCS::InventorySync do
 
-  let(:input_xml) { File.read(IngramMicro::GEM_DIR + 'spec/input_xmls/inventory_synchronization.xml') }
+  let(:input_xml) { File.read(JCS::GEM_DIR + 'spec/input_xmls/inventory_synchronization.xml') }
   let(:parser) { Nori.new }
   let(:hash_from_xml) { parser.parse(input_xml) }
-  let(:inventory_sync) { IngramMicro::InventorySync.new(hash_from_xml) }
+  let(:inventory_sync) { JCS::InventorySync.new(hash_from_xml) }
   let(:detail) { inventory_sync.detail }
-  context 'processes inventory synchronization from Ingram Micro' do
+  context 'processes inventory synchronization from JCS' do
 
     it 'creates an InventorySync object' do
       expect(inventory_sync).to_not be_nil
@@ -16,7 +16,7 @@ describe IngramMicro::InventorySync do
 
     it 'extracts details from the transmission' do
       expect(detail).to be_truthy
-      expect(detail.class).to eq IngramMicro::InventorySyncDetail
+      expect(detail.class).to eq JCS::InventorySyncDetail
     end
 
     it 'creates line items from the detail' do

@@ -1,4 +1,4 @@
-Fabricator(:return_authorization_shipment_information, class_name: IngramMicro::ReturnAuthorizationShipmentInformation) do
+Fabricator(:return_authorization_shipment_information, class_name: JCS::ReturnAuthorizationShipmentInformation) do
   element {{ ship_first_name: Faker::Name.first_name,
              ship_last_name: Faker::Name.last_name,
              ship_middle_initial: ("A".."Z").to_a.sample,
@@ -9,5 +9,5 @@ Fabricator(:return_authorization_shipment_information, class_name: IngramMicro::
              ship_country_code: Faker::Address.country_code,
              ship_phone1: Faker::PhoneNumber.phone_number,
              ship_email: Faker::Internet.email,
-             ship_via: IngramMicro::SHIPPING_METHODS.keys.sample }}
+             ship_via: JCS::SHIPPING_METHODS.keys.sample }}
 end

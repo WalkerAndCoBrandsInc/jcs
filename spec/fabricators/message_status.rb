@@ -1,4 +1,4 @@
-Fabricator(:message_status, class_name: IngramMicro::MessageStatus) do
+Fabricator(:message_status, class_name: JCS::MessageStatus) do
   element {{
     status_code: 1,
     status_description: Faker::Lorem.sentence,
