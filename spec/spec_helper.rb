@@ -1,18 +1,20 @@
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
-require 'ingram_micro'
+require 'jcs'
 require 'faker'
 require 'support/fabrication'
 require 'support/matchers'
 require 'support/faker_dates'
 require 'nori'
+require 'pry'
 
 RSpec.configure do |rconfig|
   rconfig.before(:each) do
-    IngramMicro.configure do |config|
+    JCS.configure do |config|
       config.api_root = 'http://example.com'
       config.partner_name = Faker::Company.name
       config.partner_password = Faker::Internet.password
-      config.customer_id = (1..100).to_a.sample.to_s
+      # Arbitrary customer ID
+      config.customer_id = 123
       config.debug = false
       config.proxy = nil
     end

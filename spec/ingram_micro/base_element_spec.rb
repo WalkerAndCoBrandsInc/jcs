@@ -1,13 +1,13 @@
 require 'spec_helper'
 
-describe IngramMicro::BaseElement do
+describe JCS::BaseElement do
   it 'lets you declaratively specify how each field should be formatted in the output XML' do
-    class Foo < IngramMicro::BaseElement
+    class Foo < JCS::BaseElement
       def defaults
         { created_at: nil }
       end
 
-      format :created_at, IngramMicro::DateFormatter.new
+      format :created_at, JCS::DateFormatter.new
     end
 
     Nokogiri::XML::Builder.new do |builder|

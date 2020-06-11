@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe IngramMicro::StandardResponse do
+describe JCS::StandardResponse do
 
-  let(:empty_standard_response) { IngramMicro::StandardResponse.new }
+  let(:empty_standard_response) { JCS::StandardResponse.new }
   let(:populated_standard_response) { Fabricate.build(:standard_response) }
 
   describe '#initialize' do
