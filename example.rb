@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'jcs'
 require 'logger'
 
-JCS.configure do |config|
+Jcs.configure do |config|
   config.api_root = ''
   config.partner_name = 'Your company'
   config.partner_password = ''
@@ -14,5 +14,5 @@ JCS.configure do |config|
 end
 
 options = {}
-transmission = JCS::SalesOrder.new(options)
+transmission = Jcs::SalesOrder.new(options)
 transmission.send_request

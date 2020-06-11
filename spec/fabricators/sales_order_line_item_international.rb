@@ -1,4 +1,4 @@
-Fabricator(:sales_order_line_item_international, class_name: JCS::SalesOrderLineItem) do
+Fabricator(:sales_order_line_item_international, class_name: Jcs::SalesOrderLineItem) do
   element {{ line_no: sequence(:line_no, 00001),
              item_code: Faker::Code.isbn,
              universal_product_code: Faker::Code.isbn,

@@ -1,6 +1,6 @@
 [64140, 64134, 64117].each do |i_id|
   i = Invoice.find(i_id)
-  resp = FulfillmentProvider::JCS.create_shipment(i)
+  resp = FulfillmentProvider::Jcs.create_shipment(i)
   puts "<--invoice: #{i_id}-->"
   puts resp.body
 end

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe JCS::SalesOrderLineItemNameValue do
+describe Jcs::SalesOrderLineItemNameValue do
   let(:builder) { Nokogiri::XML::Builder.new }
 
   describe '#self. build' do

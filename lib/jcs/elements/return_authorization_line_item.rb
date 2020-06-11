@@ -1,4 +1,4 @@
-class JCS::ReturnAuthorizationLineItem < JCS::BaseElement
+class Jcs::ReturnAuthorizationLineItem < Jcs::BaseElement
 
   DEFAULTS = {
     line_no: nil,

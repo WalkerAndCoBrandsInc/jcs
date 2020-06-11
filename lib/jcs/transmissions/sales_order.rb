@@ -1,4 +1,4 @@
-class JCS::SalesOrder < JCS::Transmission
+class Jcs::SalesOrder < Jcs::Transmission
   # This class uses the domestic-only schema by default. When
   # configuration.international is set to true, the parent class (Transmission),
   # knows to use the international-enabled schema instead.
@@ -20,7 +20,7 @@ class JCS::SalesOrder < JCS::Transmission
     @sales_order_header = options[:sales_order_header]
     @detail = options[:detail]
     @business_name = options[:business_name]
-    @customer_id = options[:customer_id] || JCS.configuration.customer_id
+    @customer_id = options[:customer_id] || Jcs.configuration.customer_id
     @carrier_name = options[:carrier_name]
     @purchase_order_information = options[:purchase_order_information]
 
@@ -38,8 +38,8 @@ class JCS::SalesOrder < JCS::Transmission
   end
 
   def add_message_header(builder)
-    message_header = JCS::MessageHeaderPW.new({
-      partner_name: JCS.configuration.partner_name,
+    message_header = Jcs::MessageHeaderPW.new({
+      partner_name: Jcs.configuration.partner_name,
       transaction_name: transaction_name})
     builder.send('message-header') do
       message_header.build(builder)
@@ -59,7 +59,7 @@ class JCS::SalesOrder < JCS::Transmission
       credit_card_information: credit_card_information,
       purchase_order_information: purchase_order_information
     }
-    sos = JCS::SalesOrderSubmission.new(sos_options)
+    sos = Jcs::SalesOrderSubmission.new(sos_options)
     builder.send('sales-order-submission') do
       sos.build(builder)
     end
@@ -67,7 +67,7 @@ class JCS::SalesOrder < JCS::Transmission
   end
 
   def validate_options(options)
-    raise "use sales_order_shipment_information (JCS::SalesOrderShipmentInformation" if options[:shipment_information]
-    raise "use sales_order_header (JCS::SalesOrderHeader" if options[:order_header]
+    raise "use sales_order_shipment_information (Jcs::SalesOrderShipmentInformation" if options[:shipment_information]
+    raise "use sales_order_header (Jcs::SalesOrderHeader" if options[:order_header]
   end
 end

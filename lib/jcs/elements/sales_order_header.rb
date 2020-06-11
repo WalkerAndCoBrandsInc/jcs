@@ -1,6 +1,6 @@
-module JCS
+module Jcs
   class SalesOrderHeader < BaseElement
-    format :customer_order_date, JCS::DateFormatter.new
+    format :customer_order_date, Jcs::DateFormatter.new
 
     DEFAULTS = {
       customer_order_number: 0,
@@ -19,7 +19,7 @@ module JCS
 
     # The defaults here will be used to populate the xml fields. The order of
     # these inputs matters, and they have been reconfigured to pass the xsd file
-    # provided by JCS for internationally shipped sales orders. If needed, we
+    # provided by Jcs for internationally shipped sales orders. If needed, we
     # can use different defaults and schema files for domestic and international
     # sales orders.
     INTL_DEFAULTS = {
@@ -44,7 +44,7 @@ module JCS
     }.freeze
 
     def defaults
-      JCS.domestic_schema? ? DEFAULTS : INTL_DEFAULTS
+      Jcs.domestic_schema? ? DEFAULTS : INTL_DEFAULTS
     end
 
     # Build similar to BaseElement except that we want to handle the
@@ -57,7 +57,7 @@ module JCS
         builder.send(element_name, element_value)
       end
 
-      add_header_name_value(builder) unless JCS.domestic_schema?
+      add_header_name_value(builder) unless Jcs.domestic_schema?
     end
 
     # Assume that element[:header_name_value] will be a hash with options to be

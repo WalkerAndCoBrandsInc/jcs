@@ -1,4 +1,4 @@
-module JCS
+module Jcs
   class SalesOrderHeaderNameValue < BaseElement
 
     # Each key in DEFAULTS maps to a valid attribute-name for this element.

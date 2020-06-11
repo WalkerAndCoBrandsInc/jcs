@@ -1,13 +1,13 @@
 require 'spec_helper'
 
-describe JCS::BaseElement do
+describe Jcs::BaseElement do
   it 'lets you declaratively specify how each field should be formatted in the output XML' do
-    class Foo < JCS::BaseElement
+    class Foo < Jcs::BaseElement
       def defaults
         { created_at: nil }
       end
 
-      format :created_at, JCS::DateFormatter.new
+      format :created_at, Jcs::DateFormatter.new
     end
 
     Nokogiri::XML::Builder.new do |builder|

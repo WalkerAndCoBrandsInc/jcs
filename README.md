@@ -1,10 +1,10 @@
-# JCS
+# Jcs
 [![Build Status](https://travis-ci.org/WalkerAndCoBrandsInc/jcs.svg?branch=develop)](https://travis-ci.org/WalkerAndCoBrandsInc/jcs) Development
 
 [![Build Status](https://travis-ci.org/WalkerAndCoBrandsInc/jcs.svg?branch=master)](https://travis-ci.org/WalkerAndCoBrandsInc/jcs) Latest Release
 
 
-[JCS](http://www.JCS.com/IMD_WASWeb/jsp/login/corporate.jsp) HTTPS XML API wrapper.
+[Jcs](http://www.Jcs.com/IMD_WASWeb/jsp/login/corporate.jsp) HTTPS XML API wrapper.
 
 
 ## Installation
@@ -33,12 +33,12 @@ Modify the spec_helper.rb and provide a api_root. You can create one on requestb
 ## Usage
 
 The `example.rb` script demonstrates how to use this gem. When
-configured, it creates a sales order with JCS.
+configured, it creates a sales order with Jcs.
 
 To see configuration options see `lib/jcs/configuration.rb`
 
 ```
-  JCS.configure do |config|
+  Jcs.configure do |config|
     config.api_root = "https://jcsurl.com"
     config.partner_name = 'account name'
     config.partner_password = 'password'
@@ -53,7 +53,7 @@ To see configuration options see `lib/jcs/configuration.rb`
   end
 ```
 
-The `JCS::Client` class creates the connection to the Brightpoint API
+The `Jcs::Client` class creates the connection to the Brightpoint API
 using the Faraday gem. The `Transmission` super class has subclasses (i.e.
 `SalesOrder`) that correspond to different uses of the API.
 
@@ -69,7 +69,7 @@ submissions, one that is only for domestic orders and another that is for
 domestic or international orders. If you are using the international-enabled
 schema, you must set `international_schema` to `true` in your configuration
 (`config.international_schema = true`). If you pass nothing in or set it to
-`false`, the domestic-only schema will be used by default. Discuss with JCS to
+`false`, the domestic-only schema will be used by default. Discuss with Jcs to
 determine which schema you will use.
 
 XML files are validated against the XSD schemas from the API docs and then sent
@@ -80,11 +80,11 @@ calibrated this gem to work properly with the API.
 
 ## For sites hosted in the cloud :cloud:
 
-You may not be able to get a range of IPs for JCS to whitelist.
+You may not be able to get a range of IPs for Jcs to whitelist.
 To get around this, you can route requests through
 [tinyproxy](https://github.com/tinyproxy/tinyproxy).
 
-Make sure to allow the ports that JCS gives you to connect to e.g.
+Make sure to allow the ports that Jcs gives you to connect to e.g.
 
   tinyproxy.conf
 
@@ -108,12 +108,12 @@ e.g. on a mac with homebrew (homebrew puts tinyproxy in sbin)
 
 - create a tinyproxy.conf [Example](https://github.com/tinyproxy/tinyproxy/blob/186bbc3efb4b47caac0b5e14465c97918c99e442/etc/tinyproxy.conf.in)
 - set your LogFile (config file does not understand ~ and needs full path)
-- set ConnectPort for ports JCS uses
+- set ConnectPort for ports Jcs uses
 
-### Configuring JCS for a proxy
+### Configuring Jcs for a proxy
 
 ```
-  JCS.configure do |config|
+  Jcs.configure do |config|
     [...]
     config.proxy = 'http://localhost:8888'
   end

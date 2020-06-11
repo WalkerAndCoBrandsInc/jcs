@@ -1,4 +1,4 @@
-class JCS::InboundOrderHeader < JCS::InboundBaseElement
+class Jcs::InboundOrderHeader < Jcs::InboundBaseElement
 
   def customer_order_number
     hash['customer_order_number']

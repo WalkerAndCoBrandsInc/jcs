@@ -1,6 +1,6 @@
-module JCS
+module Jcs
   class ReturnAuthorizationShipmentInformation < BaseElement
-    DEFAULTS = JCS::OutboundShipmentInformation::DEFAULTS
+    DEFAULTS = Jcs::OutboundShipmentInformation::DEFAULTS
 
     def defaults
       DEFAULTS
@@ -8,12 +8,12 @@ module JCS
 
     def valid_shipping_methods?
       shipping_method = element[:ship_via]
-      !!(::JCS::SHIPPING_METHODS[shipping_method])
+      !!(::Jcs::SHIPPING_METHODS[shipping_method])
     end
 
     def shipping_method_name
       if valid_shipping_methods?
-        ::JCS::SHIPPING_METHODS[element[:ship_via]]
+        ::Jcs::SHIPPING_METHODS[element[:ship_via]]
       else
         'Invalid shipping code'
       end

@@ -1,4 +1,4 @@
-class JCS::ShipmentStatusLineItem < JCS::BaseElement
+class Jcs::ShipmentStatusLineItem < Jcs::BaseElement
 
   DEFAULTS = {
     :line_no => nil,

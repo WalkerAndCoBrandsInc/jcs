@@ -1,4 +1,4 @@
-class JCS::InventorySyncLineItem < JCS::InboundBaseElement
+class Jcs::InventorySyncLineItem < Jcs::InboundBaseElement
 
   def line_no
     hash['line_no'].to_i

@@ -1,4 +1,4 @@
-class JCS::DateFormatter
+class Jcs::DateFormatter
   def format(date)
     if date.respond_to?(:strftime)
       date.strftime('%Y%m%d')

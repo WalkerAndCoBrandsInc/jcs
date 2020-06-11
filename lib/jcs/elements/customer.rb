@@ -1,4 +1,4 @@
-class JCS::Customer < JCS::BaseElement
+class Jcs::Customer < Jcs::BaseElement
 
   DEFAULTS = {
     customer_first_name: nil,

@@ -1,4 +1,4 @@
-class JCS::InboundBaseElement
+class Jcs::InboundBaseElement
   attr_accessor :hash
 
   def initialize(hash)

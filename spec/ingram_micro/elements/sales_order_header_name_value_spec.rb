@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe JCS::SalesOrderHeaderNameValue do
+describe Jcs::SalesOrderHeaderNameValue do
   describe '#build' do
 
     context 'with valid name passed in' do

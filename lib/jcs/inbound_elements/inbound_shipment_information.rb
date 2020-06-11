@@ -1,4 +1,4 @@
-class JCS::InboundShipmentInformation < JCS::InboundBaseElement
+class Jcs::InboundShipmentInformation < Jcs::InboundBaseElement
 
   def ship_first_name
     hash['ship_first_name']

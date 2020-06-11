@@ -1,4 +1,4 @@
-class JCS::FailureResponse < JCS::StandardResponse
+class Jcs::FailureResponse < Jcs::StandardResponse
   DESCRIPTION = "Message Failure"
 
   def initialize(options={})

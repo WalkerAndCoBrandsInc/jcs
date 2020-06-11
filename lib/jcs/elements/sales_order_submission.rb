@@ -1,4 +1,4 @@
-class JCS::SalesOrderSubmission < JCS::BaseElement
+class Jcs::SalesOrderSubmission < Jcs::BaseElement
   DEFAULTS = {
     customer: nil,
     sales_order_shipment_information: nil,
@@ -18,11 +18,11 @@ class JCS::SalesOrderSubmission < JCS::BaseElement
 
   def initialize(options={})
     super
-    @element[:customer] ||= JCS::Customer.new
-    @element[:sales_order_shipment_information] ||= JCS::SalesOrderShipmentInformation.new
-    @element[:credit_card_information] ||= JCS::CreditCardInformation.new
-    @element[:sales_order_header] ||= JCS::SalesOrderHeader.new
-    @element[:detail] ||= JCS::Detail.new({line_items: @element[:line_items]})
+    @element[:customer] ||= Jcs::Customer.new
+    @element[:sales_order_shipment_information] ||= Jcs::SalesOrderShipmentInformation.new
+    @element[:credit_card_information] ||= Jcs::CreditCardInformation.new
+    @element[:sales_order_header] ||= Jcs::SalesOrderHeader.new
+    @element[:detail] ||= Jcs::Detail.new({line_items: @element[:line_items]})
   end
 
   def build(builder)

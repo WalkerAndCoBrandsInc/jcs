@@ -1,4 +1,4 @@
-class JCS::CreditCardInformation < JCS::BaseElement
+class Jcs::CreditCardInformation < Jcs::BaseElement
   DEFAULTS = {
     credit_card_number: nil,
     credit_card_expiration_date: nil,

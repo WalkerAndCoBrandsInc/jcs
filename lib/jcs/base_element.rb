@@ -1,4 +1,4 @@
-class JCS::BaseElement
+class Jcs::BaseElement
   attr_accessor :element
 
   def initialize(options={})
@@ -13,7 +13,7 @@ class JCS::BaseElement
   # BaseElement) and checks to see if a value for that field has been passed in.
   # If no value was passed in, the field will be assigned the default value.
   # The fields are being added to builder, which is a Nokogiri XML Builder
-  # object that can output an xml document (which gets sent to JCS).
+  # object that can output an xml document (which gets sent to Jcs).
   def build(builder)
     self.defaults.keys.each do |field|
       element_name = field.to_s.gsub('_', '-')
@@ -33,7 +33,7 @@ class JCS::BaseElement
     if @formatters && @formatters[field]
       @formatters[field]
     else
-      JCS::NullFormatter.new
+      Jcs::NullFormatter.new
     end
   end
 

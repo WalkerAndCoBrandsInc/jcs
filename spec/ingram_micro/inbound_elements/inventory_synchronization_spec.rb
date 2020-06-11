@@ -1,13 +1,13 @@
 require 'spec_helper'
 
-describe JCS::InventorySync do
+describe Jcs::InventorySync do
 
-  let(:input_xml) { File.read(JCS::GEM_DIR + 'spec/input_xmls/inventory_synchronization.xml') }
+  let(:input_xml) { File.read(Jcs::GEM_DIR + 'spec/input_xmls/inventory_synchronization.xml') }
   let(:parser) { Nori.new }
   let(:hash_from_xml) { parser.parse(input_xml) }
-  let(:inventory_sync) { JCS::InventorySync.new(hash_from_xml) }
+  let(:inventory_sync) { Jcs::InventorySync.new(hash_from_xml) }
   let(:detail) { inventory_sync.detail }
-  context 'processes inventory synchronization from JCS' do
+  context 'processes inventory synchronization from Jcs' do
 
     it 'creates an InventorySync object' do
       expect(inventory_sync).to_not be_nil
@@ -16,7 +16,7 @@ describe JCS::InventorySync do
 
     it 'extracts details from the transmission' do
       expect(detail).to be_truthy
-      expect(detail.class).to eq JCS::InventorySyncDetail
+      expect(detail.class).to eq Jcs::InventorySyncDetail
     end
 
     it 'creates line items from the detail' do

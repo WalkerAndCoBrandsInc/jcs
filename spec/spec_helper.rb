@@ -9,7 +9,7 @@ require 'pry'
 
 RSpec.configure do |rconfig|
   rconfig.before(:each) do
-    JCS.configure do |config|
+    Jcs.configure do |config|
       config.api_root = 'http://example.com'
       config.partner_name = Faker::Company.name
       config.partner_password = Faker::Internet.password

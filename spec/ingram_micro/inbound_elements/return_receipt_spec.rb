@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe JCS::ReturnReceipt do
+describe Jcs::ReturnReceipt do
   let(:return_receipt) do
-    hash = Nori.new.parse(File.read(JCS::GEM_DIR + 'spec/input_xmls/return-receipt.xml'))
-    JCS::ReturnReceipt.new(hash)
+    hash = Nori.new.parse(File.read(Jcs::GEM_DIR + 'spec/input_xmls/return-receipt.xml'))
+    Jcs::ReturnReceipt.new(hash)
   end
 
   it "returns customer_id" do

@@ -1,4 +1,4 @@
-class JCS::ReturnAuthorization < JCS::Transmission
+class Jcs::ReturnAuthorization < Jcs::Transmission
   TRANSMISSION_FILENAME = 'return-authorization'
 
   attr_accessor :customer, :customer_id ,:credit_card_information,
@@ -13,7 +13,7 @@ class JCS::ReturnAuthorization < JCS::Transmission
     @credit_card_information = options[:credit_card_information]
     @return_authorization_order_header = options[:return_authorization_order_header]
     @detail = options[:detail]
-    @customer_id = options[:customer_id] || JCS.configuration.customer_id
+    @customer_id = options[:customer_id] || Jcs.configuration.customer_id
     @purchase_order_information = options[:purchase_order_information]
   end
 
@@ -27,8 +27,8 @@ class JCS::ReturnAuthorization < JCS::Transmission
   end
 
   def add_message_header(builder)
-    message_header = JCS::MessageHeaderPW.new({
-      partner_name: JCS.configuration.partner_name,
+    message_header = Jcs::MessageHeaderPW.new({
+      partner_name: Jcs.configuration.partner_name,
       transaction_name: transaction_name
     })
     builder.send('message-header') do
@@ -47,7 +47,7 @@ class JCS::ReturnAuthorization < JCS::Transmission
       detail: detail,
       purchase_order_information: purchase_order_information,
     }
-    ras = JCS::ReturnAuthorizationSubmission.new(ra_options)
+    ras = Jcs::ReturnAuthorizationSubmission.new(ra_options)
     builder.send('return-authorization-submission') do
       ras.build(builder)
     end

@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe JCS::Client do
+describe Jcs::Client do
 
-  let(:client) { JCS::Client.new }
+  let(:client) { Jcs::Client.new }
 
   describe "#initialize" do
     context "creates Faraday connection" do
@@ -12,7 +12,7 @@ describe JCS::Client do
 
       context "configuration has no proxy set" do
         before do
-          JCS.configuration.proxy = nil
+          Jcs.configuration.proxy = nil
         end
 
         it "does not set proxy on client" do
@@ -24,20 +24,20 @@ describe JCS::Client do
 
       context "configuration has proxy set" do
         before do
-          JCS.configuration.proxy = "localhost:8888"
+          Jcs.configuration.proxy = "localhost:8888"
         end
 
         it "sets proxy on faraday client" do
           proxy = client.conn.proxy
 
           expect(proxy).to_not be_nil
-          expect(proxy.uri.to_s).to eq(JCS.configuration.proxy)
+          expect(proxy.uri.to_s).to eq(Jcs.configuration.proxy)
         end
       end
 
       context "when passing ssl options" do
         before do
-          JCS.configuration.ssl_options = {
+          Jcs.configuration.ssl_options = {
             certificate: file
           }
         end

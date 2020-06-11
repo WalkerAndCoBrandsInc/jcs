@@ -1,3 +1,3 @@
-module JCS
+module Jcs
   VERSION = "0.6.0".freeze
 end

@@ -1,4 +1,4 @@
-class JCS::SerialNumbers < JCS::InboundBaseElement
+class Jcs::SerialNumbers < Jcs::InboundBaseElement
 
   def min
     hash['min']

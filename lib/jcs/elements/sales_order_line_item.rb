@@ -1,4 +1,4 @@
-module JCS
+module Jcs
   class SalesOrderLineItem < BaseElement
     DEFAULTS = {
       line_no:                nil,
@@ -38,7 +38,7 @@ module JCS
     end
 
     def defaults
-      JCS.domestic_schema? ? DEFAULTS : INTL_DEFAULTS
+      Jcs.domestic_schema? ? DEFAULTS : INTL_DEFAULTS
     end
 
     def build(builder)
@@ -55,7 +55,7 @@ module JCS
 
       # If this is an international shipment, then we need to add line-name-value
       # to the xml. Otherwise we can skip that.
-      add_line_name_value(builder) unless JCS.domestic_schema?
+      add_line_name_value(builder) unless Jcs.domestic_schema?
     end
 
     # The <line-name-value> element in the detail of a sales order line item
