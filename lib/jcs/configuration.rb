@@ -1,6 +1,6 @@
 require 'yaml'
 
-module JCS
+module Jcs
   class Configuration
     attr_accessor :api_root, :debug, :logger,
       :partner_name, :partner_password, :international_schema,

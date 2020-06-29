@@ -1,4 +1,4 @@
-class JCS::InboundLineItem < JCS::InboundBaseElement
+class Jcs::InboundLineItem < Jcs::InboundBaseElement
 
   def base_price
     hash['base_price']
@@ -39,7 +39,7 @@ class JCS::InboundLineItem < JCS::InboundBaseElement
   def serial_numbers
     if hash['serial_list']
       serial_numbers_hash = hash['serial_list']['serial_numbers']
-      JCS::SerialNumbers.new(serial_numbers_hash)
+      Jcs::SerialNumbers.new(serial_numbers_hash)
     end
   end
 

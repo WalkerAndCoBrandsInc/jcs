@@ -1,8 +1,8 @@
 require 'spec_helper'
 require 'logger'
 
-describe JCS::Configuration do
-  let(:config) { JCS::Configuration.new }
+describe Jcs::Configuration do
+  let(:config) { Jcs::Configuration.new }
 
   it 'sets api root' do
     config.api_root = 'https://jcs.com/post'
@@ -63,7 +63,7 @@ describe JCS::Configuration do
   end
 
   describe '#assert_valid' do
-    let(:configuration) { JCS::Configuration.new }
+    let(:configuration) { Jcs::Configuration.new }
 
     context 'when everything is valid' do
       before do
@@ -99,36 +99,36 @@ describe JCS::Configuration do
 
       it 'fails when there is no partner_name' do
         configuration.partner_name = nil
-        expect { configuration.assert_valid }.to raise_error(JCS::Configuration::Error, 'partner_name is required')
+        expect { configuration.assert_valid }.to raise_error(Jcs::Configuration::Error, 'partner_name is required')
       end
 
       it 'fails when there is no api_root' do
         configuration.api_root = nil
-        expect { configuration.assert_valid }.to raise_error(JCS::Configuration::Error, 'api_root is required')
+        expect { configuration.assert_valid }.to raise_error(Jcs::Configuration::Error, 'api_root is required')
       end
 
       it 'fails when there is no customer_id' do
         configuration.customer_id = nil
-        expect { configuration.assert_valid }.to raise_error(JCS::Configuration::Error, 'customer_id is required')
+        expect { configuration.assert_valid }.to raise_error(Jcs::Configuration::Error, 'customer_id is required')
       end
 
       it 'fails when debug is set without logger' do
         configuration.debug = true
         configuration.logger = nil
 
-        expect { configuration.assert_valid }.to raise_error(JCS::Configuration::Error, 'logger must be set if debug is set')
+        expect { configuration.assert_valid }.to raise_error(Jcs::Configuration::Error, 'logger must be set if debug is set')
       end
 
       it 'fails when customer_id is non-integer' do
         configuration.customer_id = 'not integery'
 
-        expect { configuration.assert_valid }.to raise_error(JCS::Configuration::Error, 'customer_id must be an integer')
+        expect { configuration.assert_valid }.to raise_error(Jcs::Configuration::Error, 'customer_id must be an integer')
       end
 
       it 'fails when proxy does not have protocol' do
         configuration.proxy = 'localhost:8888'
 
-        expect { configuration.assert_valid }.to raise_error(JCS::Configuration::Error, 'proxy must have protocol http://')
+        expect { configuration.assert_valid }.to raise_error(Jcs::Configuration::Error, 'proxy must have protocol http://')
       end
     end
   end

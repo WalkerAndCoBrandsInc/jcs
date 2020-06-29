@@ -1,4 +1,4 @@
-class JCS::CheckShipmentStatus < JCS::Transmission
+class Jcs::CheckShipmentStatus < Jcs::Transmission
   TRANSMISSION_FILENAME = 'shipment-status'
 
   attr_accessor :business_name, :customer_id, :line_items
@@ -7,7 +7,7 @@ class JCS::CheckShipmentStatus < JCS::Transmission
     super
     @transaction_name = 'shipment-status'
     @business_name = options[:business_name]
-    @customer_id = JCS.configuration.customer_id
+    @customer_id = Jcs.configuration.customer_id
     @line_items = options[:line_items]
   end
 
@@ -22,8 +22,8 @@ class JCS::CheckShipmentStatus < JCS::Transmission
   end
 
   def add_message_header(builder)
-    message_header = JCS::MessageHeaderNoPW.new({
-      partner_name: JCS.configuration.partner_name,
+    message_header = Jcs::MessageHeaderNoPW.new({
+      partner_name: Jcs.configuration.partner_name,
       transaction_name: transaction_name})
     builder.send('message-header') do
       message_header.build(builder)
@@ -37,7 +37,7 @@ class JCS::CheckShipmentStatus < JCS::Transmission
       customer_id: @customer_id,
       line_items: @line_items
     }
-    ss = JCS::ShipmentStatus.new(options)
+    ss = Jcs::ShipmentStatus.new(options)
     builder.send('shipment-status') do
       ss.build(builder)
     end

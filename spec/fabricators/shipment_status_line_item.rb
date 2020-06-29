@@ -1,4 +1,4 @@
-Fabricator(:shipment_status_line_item, class_name: JCS::ShipmentStatusLineItem) do
+Fabricator(:shipment_status_line_item, class_name: Jcs::ShipmentStatusLineItem) do
   element {{line_no: sequence(:line_no, 00001),
             transaction_document_number: Faker::Code.ean,
             bill_of_lading: Faker::Bitcoin.address,

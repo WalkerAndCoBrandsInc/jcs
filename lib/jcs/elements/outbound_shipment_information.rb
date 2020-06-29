@@ -1,4 +1,4 @@
-class JCS::OutboundShipmentInformation < JCS::BaseElement
+class Jcs::OutboundShipmentInformation < Jcs::BaseElement
   # COMMON contains keys between DEFAULTS and INTL_DEFAULTS.
   #
   # NOTE, the order of keys matters when doing XSD validations.
@@ -38,17 +38,17 @@ class JCS::OutboundShipmentInformation < JCS::BaseElement
   }).freeze
 
   def defaults
-    JCS.domestic_schema? ? DEFAULTS : INTL_DEFAULTS
+    Jcs.domestic_schema? ? DEFAULTS : INTL_DEFAULTS
   end
 
   def valid_shipping_methods?
     shipping_method = element[:ship_via]
-    !!JCS::SHIPPING_METHODS[shipping_method]
+    !!Jcs::SHIPPING_METHODS[shipping_method]
   end
 
   def shipping_method_name
     if valid_shipping_methods?
-      JCS::SHIPPING_METHODS[element[:ship_via]]
+      Jcs::SHIPPING_METHODS[element[:ship_via]]
     else
       'Invalid shipping code'
     end

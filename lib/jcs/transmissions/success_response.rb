@@ -1,4 +1,4 @@
-class JCS::SuccessResponse < JCS::StandardResponse
+class Jcs::SuccessResponse < Jcs::StandardResponse
   DESCRIPTION = "Message Success"
 
   def initialize(options={})

@@ -1,15 +1,15 @@
 require 'spec_helper'
 
 # SalesOrderStatus can be for sales-order-success or sales-order-rejection
-# messages from JCS. These tests cover both scenarios.
-describe JCS::SalesOrderStatus do
+# messages from Jcs. These tests cover both scenarios.
+describe Jcs::SalesOrderStatus do
   # Nori is the parser used to derive hash from xml
   let(:parser) { Nori.new }
 
-  context 'processes sales order rejection from JCS' do
-    let(:rejection_input_xml) { File.read(JCS::GEM_DIR + 'spec/input_xmls/sales_order_rejection.xml') }
+  context 'processes sales order rejection from Jcs' do
+    let(:rejection_input_xml) { File.read(Jcs::GEM_DIR + 'spec/input_xmls/sales_order_rejection.xml') }
     let(:rejection_hash_from_xml) { parser.parse(rejection_input_xml) }
-    let(:sales_order_rejection) { JCS::SalesOrderStatus.new(rejection_hash_from_xml) }
+    let(:sales_order_rejection) { Jcs::SalesOrderStatus.new(rejection_hash_from_xml) }
 
     it 'creates a SalesOrderStatus object' do
       expect(sales_order_rejection).to_not be_nil
@@ -80,10 +80,10 @@ describe JCS::SalesOrderStatus do
     end
   end
 
-  context 'processes sales order success from JCS' do
-    let(:success_input_xml) { File.read(JCS::GEM_DIR + 'spec/input_xmls/sales_order_success.xml') }
+  context 'processes sales order success from Jcs' do
+    let(:success_input_xml) { File.read(Jcs::GEM_DIR + 'spec/input_xmls/sales_order_success.xml') }
     let(:success_hash_from_xml) { parser.parse(success_input_xml) }
-    let(:sales_order_success) { JCS::SalesOrderStatus.new(success_hash_from_xml) }
+    let(:sales_order_success) { Jcs::SalesOrderStatus.new(success_hash_from_xml) }
 
     it 'creates a SalesOrderStatus object' do
       expect(sales_order_success).to_not be_nil

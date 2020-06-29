@@ -1,4 +1,4 @@
-module JCS
+module Jcs
   class SalesOrderLineItemNameValue < BaseElement
 
     # Each key in DEFAULTS maps to a valid line-attribute-name for this element.

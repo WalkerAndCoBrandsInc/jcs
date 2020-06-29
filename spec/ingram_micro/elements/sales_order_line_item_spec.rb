@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe JCS::SalesOrderLineItem do
+describe Jcs::SalesOrderLineItem do
   let(:line_item) { Fabricate.build(:sales_order_line_item) }
 
   describe '#line_no and #line_no=' do
@@ -39,7 +39,7 @@ describe JCS::SalesOrderLineItem do
       # the resulting xml won't appear unless it is called in a separate test.
       context 'when shipping using the international schema' do
         before do
-          JCS.configuration.international_schema = true
+          Jcs.configuration.international_schema = true
         end
 
         context 'when at least one attribute-value pair is present' do
@@ -81,7 +81,7 @@ describe JCS::SalesOrderLineItem do
 
     it 'adds a special message to the xml if one is passed in' do
       builder = Nokogiri::XML::Builder.new
-      message = JCS::SalesOrderLineItemSpecialMessage.new(
+      message = Jcs::SalesOrderLineItemSpecialMessage.new(
         engraving_font: 'hellavetica',
         engraving_location: 'Santa Cruz',
         special_message1: 'duuuude'

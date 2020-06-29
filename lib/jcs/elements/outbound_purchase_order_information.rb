@@ -1,4 +1,4 @@
-class JCS::OutboundPurchaseOrderInformation < JCS::BaseElement
+class Jcs::OutboundPurchaseOrderInformation < Jcs::BaseElement
   DEFAULTS = {
     purchase_order_number: nil,
     account_description: nil,

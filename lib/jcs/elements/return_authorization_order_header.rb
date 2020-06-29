@@ -1,4 +1,4 @@
-class JCS::ReturnAuthorizationOrderHeader < JCS::BaseElement
+class Jcs::ReturnAuthorizationOrderHeader < Jcs::BaseElement
 
   DEFAULTS = {
     customer_order_number: 0,

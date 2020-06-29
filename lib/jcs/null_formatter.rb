@@ -1,4 +1,4 @@
-class JCS::NullFormatter
+class Jcs::NullFormatter
   def format(value)
     value
   end

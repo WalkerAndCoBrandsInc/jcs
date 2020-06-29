@@ -1,4 +1,4 @@
-Fabricator(:sales_order_shipment_information, class_name: JCS::SalesOrderShipmentInformation) do
+Fabricator(:sales_order_shipment_information, class_name: Jcs::SalesOrderShipmentInformation) do
   element { Fabricate.build(:shipment_information).element.merge({
     ship_no_later: Faker::Date.jcs_date_range,
     no_ship_before: Faker::Date.jcs_date_range,

@@ -1,4 +1,4 @@
-class JCS::Transmission
+class Jcs::Transmission
   XSD = {
     'sales-order-submission' => 'outbound/BPXML-SalesOrderDomestic.xsd',
     'sales-order-international' => 'outbound/BPXML-SalesOrderInternational.xsd',
@@ -35,10 +35,10 @@ class JCS::Transmission
   def load_schema
     transmission_name = self.class::TRANSMISSION_FILENAME
     if transmission_name == 'sales-order-submission' &&
-      !JCS.domestic_schema?
+      !Jcs.domestic_schema?
       transmission_name = 'sales-order-international'
     end
-    Nokogiri::XML::Schema(File.read("#{JCS::GEM_DIR}/xsd/" +
+    Nokogiri::XML::Schema(File.read("#{Jcs::GEM_DIR}/xsd/" +
       XSD[transmission_name]))
   end
 
@@ -58,12 +58,12 @@ class JCS::Transmission
   end
 
   def submit_request
-    raise JCS::XMLSchemaMismatch, 'xml did not pass schema' if !schema_valid?
+    raise Jcs::XMLSchemaMismatch, 'xml did not pass schema' if !schema_valid?
     send_request
   end
 
   def send_request
-    client = JCS::Client.new
+    client = Jcs::Client.new
     client.post(self.xml_builder.to_xml)
   end
 end

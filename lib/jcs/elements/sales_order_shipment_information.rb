@@ -1,4 +1,4 @@
-module JCS
+module Jcs
   class SalesOrderShipmentInformation < OutboundShipmentInformation
     # NOTE, the order of keys matters when doing XSD validations.
     DEFAULTS = DEFAULTS.merge(

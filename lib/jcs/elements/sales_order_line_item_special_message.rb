@@ -1,4 +1,4 @@
-module JCS
+module Jcs
   class SalesOrderLineItemSpecialMessage < BaseElement
     DEFAULTS = {
       engraving_location: nil,

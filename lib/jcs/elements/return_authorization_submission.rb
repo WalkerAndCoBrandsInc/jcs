@@ -1,4 +1,4 @@
-class JCS::ReturnAuthorizationSubmission < JCS::BaseElement
+class Jcs::ReturnAuthorizationSubmission < Jcs::BaseElement
 
   DEFAULTS = {
     customer: nil,
@@ -20,17 +20,17 @@ class JCS::ReturnAuthorizationSubmission < JCS::BaseElement
   def initialize(options={})
     super
 
-    @element[:customer] ||= JCS::Customer.new
-    @element[:shipment_information] ||= JCS::ReturnAuthorizationShipmentInformation.new
-    @element[:credit_card_information] ||= JCS::CreditCardInformation.new
-    @element[:return_authorization_order_header] ||= JCS::ReturnAuthorizationOrderHeader.new
-    @element[:purchase_order_information] ||= JCS::OutboundPurchaseOrderInformation.new
-    @element[:detail] ||= JCS::Detail.new
+    @element[:customer] ||= Jcs::Customer.new
+    @element[:shipment_information] ||= Jcs::ReturnAuthorizationShipmentInformation.new
+    @element[:credit_card_information] ||= Jcs::CreditCardInformation.new
+    @element[:return_authorization_order_header] ||= Jcs::ReturnAuthorizationOrderHeader.new
+    @element[:purchase_order_information] ||= Jcs::OutboundPurchaseOrderInformation.new
+    @element[:detail] ||= Jcs::Detail.new
   end
 
   def build(builder)
     builder.send('header') do
-      builder.send 'customer-id', @element[:customer_id] || JCS.configuration.customer_id
+      builder.send 'customer-id', @element[:customer_id] || Jcs.configuration.customer_id
       builder.send 'business-name', @element[:business_name]
       builder.send 'carrier-name', @element[:carrier_name]
       builder.send('customer-information') do
@@ -57,7 +57,7 @@ class JCS::ReturnAuthorizationSubmission < JCS::BaseElement
 
   def check_line_items
     if @element[:detail].element[:line_items].empty?
-      line_item = JCS::ReturnAuthorizationLineItem.new
+      line_item = Jcs::ReturnAuthorizationLineItem.new
       @element[:detail].element[:line_items] << line_item
     end
   end

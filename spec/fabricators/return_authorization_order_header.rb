@@ -1,4 +1,4 @@
-Fabricator(:return_authorization_order_header, class_name: JCS::ReturnAuthorizationOrderHeader) do
+Fabricator(:return_authorization_order_header, class_name: Jcs::ReturnAuthorizationOrderHeader) do
   element {{ customer_order_number: Faker::Code.ean,
   order_sub_total: Faker::Commerce.price,
   order_shipment_charge: Faker::Commerce.price,

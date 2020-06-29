@@ -1,8 +1,8 @@
 require "spec_helper"
 
-describe JCS::SalesOrder do
+describe Jcs::SalesOrder do
   let(:empty_sales_order) do
-    JCS::SalesOrder.new({partner_name: Faker::Company.name})
+    Jcs::SalesOrder.new({partner_name: Faker::Company.name})
   end
 
   let(:populated_sales_order) { Fabricate.build(:sales_order) }
@@ -21,7 +21,7 @@ describe JCS::SalesOrder do
     context "with sales order shipment information" do
       let(:sales_order_shipment_information) { Fabricate.build(:sales_order_shipment_information) }
       it "sets the attribute" do
-        sales_order = JCS::SalesOrder.new({sales_order_shipment_information: sales_order_shipment_information})
+        sales_order = Jcs::SalesOrder.new({sales_order_shipment_information: sales_order_shipment_information})
         expect(sales_order.sales_order_shipment_information).to eq(sales_order_shipment_information)
       end
     end
@@ -29,7 +29,7 @@ describe JCS::SalesOrder do
     context "with purchase order information" do
       let(:sales_order_purchase_order_information) { Fabricate.build(:sales_order_purchase_order_information) }
       it "sets the attribute" do
-        sales_order = JCS::SalesOrder.new({purchase_order_information: sales_order_purchase_order_information})
+        sales_order = Jcs::SalesOrder.new({purchase_order_information: sales_order_purchase_order_information})
         expect(sales_order.purchase_order_information).to eq(sales_order_purchase_order_information)
       end
     end
@@ -37,14 +37,14 @@ describe JCS::SalesOrder do
     describe "customer id attribute" do
       context "with customer id param passed in" do
         it "sets customer_id" do
-          sales_order = JCS::SalesOrder.new({customer_id: 12341234}).xml_builder.to_xml
+          sales_order = Jcs::SalesOrder.new({customer_id: 12341234}).xml_builder.to_xml
           expect(sales_order).to include("<customer-id>12341234</customer-id>")
         end
       end
 
       context "with customer id param not passed in" do
         it "pulls from the configuration" do
-          sales_order = JCS::SalesOrder.new.xml_builder.to_xml
+          sales_order = Jcs::SalesOrder.new.xml_builder.to_xml
           expect(sales_order).to include("<customer-id>123</customer-id>")
         end
       end
@@ -53,13 +53,13 @@ describe JCS::SalesOrder do
     context "old options passed in" do
       it "raises for shipment information" do
         expect do
-          JCS::SalesOrder.new({shipment_information: Fabricate.build(:sales_order_shipment_information)})
+          Jcs::SalesOrder.new({shipment_information: Fabricate.build(:sales_order_shipment_information)})
         end.to raise_error(/sales_order_shipment_information/)
       end
 
       it "raises for order header" do
         expect do
-          JCS::SalesOrder.new({order_header: Fabricate.build(:sales_order_header)})
+          Jcs::SalesOrder.new({order_header: Fabricate.build(:sales_order_header)})
         end.to raise_error(/sales_order_header/)
       end
     end
@@ -68,7 +68,7 @@ describe JCS::SalesOrder do
   context "configured for domestic shipping" do
 
     before(:each) do
-      JCS.configure { |config| config.international_schema = false }
+      Jcs.configure { |config| config.international_schema = false }
     end
 
     describe "#schema_valid?" do
@@ -109,7 +109,7 @@ describe JCS::SalesOrder do
   context "configured for international schema" do
 
     before(:each) do
-      JCS.configure { |config| config.international_schema = false }
+      Jcs.configure { |config| config.international_schema = false }
     end
 
     let!(:international_sales_order) { Fabricate.build(:sales_order_international) }

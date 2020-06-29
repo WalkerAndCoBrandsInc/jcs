@@ -1,4 +1,4 @@
-class JCS::MessageHeaderNoPW < JCS::BaseElement
+class Jcs::MessageHeaderNoPW < Jcs::BaseElement
   DEFAULTS = {
     message_id:       0,
     transaction_name: nil,
@@ -8,7 +8,7 @@ class JCS::MessageHeaderNoPW < JCS::BaseElement
     response_request: 1
   }.freeze
 
-  format :create_timestamp, JCS::DateTimeFormatter.new
+  format :create_timestamp, Jcs::DateTimeFormatter.new
 
   def defaults
     DEFAULTS
@@ -16,11 +16,11 @@ class JCS::MessageHeaderNoPW < JCS::BaseElement
 
   def valid?
     if !integer?(@element[:message_id])
-      raise JCS::InvalidType.new('message_id must be a number')
+      raise Jcs::InvalidType.new('message_id must be a number')
     end
 
     if !@element[:partner_name]
-      raise JCS::MissingField.new('partner_name must be present')
+      raise Jcs::MissingField.new('partner_name must be present')
     end
 
     true

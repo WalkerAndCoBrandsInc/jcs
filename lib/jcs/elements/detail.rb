@@ -1,4 +1,4 @@
-class JCS::Detail < JCS::BaseElement
+class Jcs::Detail < Jcs::BaseElement
 
   DEFAULTS = {
     line_items: []

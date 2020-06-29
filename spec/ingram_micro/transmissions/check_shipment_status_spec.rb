@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe JCS::CheckShipmentStatus do
+describe Jcs::CheckShipmentStatus do
 
-  let(:empty_shipment_status) { JCS::CheckShipmentStatus.new }
+  let(:empty_shipment_status) { Jcs::CheckShipmentStatus.new }
 
   let(:options) {{
 

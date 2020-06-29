@@ -1,4 +1,4 @@
-Fabricator(:shipment_information, class_name: JCS::OutboundShipmentInformation) do
+Fabricator(:shipment_information, class_name: Jcs::OutboundShipmentInformation) do
   element {{ ship_first_name: Faker::Name.first_name,
              ship_last_name: Faker::Name.last_name,
              ship_middle_initial: ("A".."Z").to_a.sample,
@@ -9,5 +9,5 @@ Fabricator(:shipment_information, class_name: JCS::OutboundShipmentInformation) 
              ship_country_code: Faker::Address.country_code,
              ship_phone1: Faker::PhoneNumber.phone_number,
              ship_email: Faker::Internet.email,
-             ship_via: JCS::SHIPPING_METHODS.keys.sample }}
+             ship_via: Jcs::SHIPPING_METHODS.keys.sample }}
 end

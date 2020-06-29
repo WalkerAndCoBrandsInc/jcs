@@ -1,4 +1,4 @@
-class JCS::MessageStatus < JCS::BaseElement
+class Jcs::MessageStatus < Jcs::BaseElement
   DEFAULTS = {
     status_code: nil,
     status_description: nil,

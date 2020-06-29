@@ -1,4 +1,4 @@
-class JCS::StandardResponse < JCS::Transmission
+class Jcs::StandardResponse < Jcs::Transmission
   TRANSMISSION_FILENAME = 'standard-response'
 
   attr_accessor :status_code, :status_description, :comments,
@@ -29,8 +29,8 @@ class JCS::StandardResponse < JCS::Transmission
   end
 
   def add_message_header(builder)
-    message_header = JCS::MessageHeaderPW.new({
-      partner_name: JCS.configuration.partner_name,
+    message_header = Jcs::MessageHeaderPW.new({
+      partner_name: Jcs.configuration.partner_name,
       transaction_name: transaction_name})
     builder.send('message-header') do
       message_header.build(builder)
@@ -39,7 +39,7 @@ class JCS::StandardResponse < JCS::Transmission
   end
 
   def add_message_status(builder)
-    message_status = JCS::MessageStatus.new({
+    message_status = Jcs::MessageStatus.new({
       status_code: @status_code,
       status_description: @status_description,
       comments: @comments,

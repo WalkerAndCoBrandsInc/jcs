@@ -1,4 +1,4 @@
-class JCS::InboundPurchaseOrderInformation < JCS::InboundBaseElement
+class Jcs::InboundPurchaseOrderInformation < Jcs::InboundBaseElement
 
   def purchase_order_number
     hash['purchase_order_number']

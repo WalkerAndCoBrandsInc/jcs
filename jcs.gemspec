@@ -5,11 +5,11 @@ require 'jcs/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "jcs"
-  spec.version       = JCS::VERSION
+  spec.version       = Jcs::VERSION
   spec.authors       = ["Ben Christel", "Khaaliq DeJan", "Rachel Heaton", "Colby Holliday", "Joseph Nguyen", "Shola Oyedele"]
   spec.email         = ["webops@walkerandcobrands.com"]
 
-  spec.summary       = %q{Rubygem wrapper for JCS API}
+  spec.summary       = %q{Rubygem wrapper for Jcs API}
   spec.homepage      = "https://github.com/WalkerAndCoBrandsInc/jcs"
   spec.license       = "MIT"
 

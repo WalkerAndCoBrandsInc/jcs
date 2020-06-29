@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe JCS::StandardResponse do
+describe Jcs::StandardResponse do
 
-  let(:empty_standard_response) { JCS::StandardResponse.new }
+  let(:empty_standard_response) { Jcs::StandardResponse.new }
   let(:populated_standard_response) { Fabricate.build(:standard_response) }
 
   describe '#initialize' do

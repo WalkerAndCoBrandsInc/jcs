@@ -1,6 +1,6 @@
 require 'nori'
 
-class JCS::InboundTransmissionFactory
+class Jcs::InboundTransmissionFactory
   attr_reader :request_body_string
 
   def self.from_xml(request_body_string)
@@ -28,17 +28,17 @@ class JCS::InboundTransmissionFactory
   def inbound_transmission_class
     case transaction_name
     when 'sales-order-submission'
-      JCS::SalesOrderStatus
+      Jcs::SalesOrderStatus
     when 'sales-order-success'
-      JCS::SalesOrderStatus
+      Jcs::SalesOrderStatus
     when 'sales-order-rejection'
-      JCS::SalesOrderStatus
+      Jcs::SalesOrderStatus
     when 'ship-advice'
-      JCS::ShipAdvice
+      Jcs::ShipAdvice
     when 'inventory-synchronization'
-      JCS::InventorySync
+      Jcs::InventorySync
     when 'return-receipt'
-      JCS::ReturnReceipt
+      Jcs::ReturnReceipt
     else
       raise Error, "#{self.class.name} received unrecognized transaction-name: #{transaction_name}"
     end

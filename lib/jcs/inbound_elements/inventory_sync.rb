@@ -1,4 +1,4 @@
-class JCS::InventorySync < JCS::InboundBaseElement
+class Jcs::InventorySync < Jcs::InboundBaseElement
 
   def message_header
     @hash['message']['message_header']
@@ -10,7 +10,7 @@ class JCS::InventorySync < JCS::InboundBaseElement
 
   def detail
     detail = @hash['message']['inventory_synchronization']['detail']
-    JCS::InventorySyncDetail.new(detail)
+    Jcs::InventorySyncDetail.new(detail)
   end
 
 end

@@ -10,11 +10,11 @@ require_rel 'jcs/inbound_elements/*.rb'
 require 'jcs/transmissions/standard_response'
 require_rel 'jcs/transmissions/*.rb'
 
-module JCS
+module Jcs
   GEM_DIR = (File.dirname(__FILE__) + '/../').freeze
 
   def self.configuration
-    @configuration ||= JCS::Configuration.new
+    @configuration ||= Jcs::Configuration.new
   end
 
   def self.configure
@@ -25,13 +25,13 @@ module JCS
   # This method checks the shipping configuration of the gem. If the user of the
   # gem is using international schema, then this method will return false and
   # vice versa. This configuration determines which sales order submission
-  # schema is used when submitting sales order submission requests to JCS
+  # schema is used when submitting sales order submission requests to Jcs
   # Micro.
   #
   # Returns:
   #   Boolean
   def self.domestic_schema?
-    JCS.configuration.international_schema ? false : true
+    Jcs.configuration.international_schema ? false : true
   end
 
   def self.generate_order_number(prefix = '')

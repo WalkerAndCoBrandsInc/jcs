@@ -1,5 +1,5 @@
 require 'uri'
-class JCS::Client
+class Jcs::Client
 
   attr_reader :uri, :conn
 
@@ -54,6 +54,6 @@ class JCS::Client
   end
 
   def configuration
-    JCS.configuration
+    Jcs.configuration
   end
 end
