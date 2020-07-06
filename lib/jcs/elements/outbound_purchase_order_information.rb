@@ -1,5 +1,6 @@
 class Jcs::OutboundPurchaseOrderInformation < Jcs::BaseElement
   DEFAULTS = {
+    signature_confirmation: false,
     purchase_order_number: nil,
     account_description: nil,
     purchase_order_amount: 0.0,
