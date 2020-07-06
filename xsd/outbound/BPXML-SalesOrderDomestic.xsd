@@ -97,6 +97,7 @@
 				<xs:element ref="purchase-order-information" minOccurs="0"/>
 				<xs:element ref="credit-card-information" minOccurs="0"/>
 				<xs:element ref="order-header"/>
+				<xs:element ref="signature-confirmation" minOccurs="0" type="xs:boolean"/>
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
@@ -175,7 +176,7 @@
 				<xs:element ref="no-ship-before" minOccurs="0"/>
 				<xs:element ref="ship-request-from" minOccurs="0"/>
 				<xs:element ref="ship-request-warehouse" minOccurs="0"/>
-				
+
 				<xs:element ref="ship-to-code" minOccurs="0"/>
 			</xs:sequence>
 		</xs:complexType>
